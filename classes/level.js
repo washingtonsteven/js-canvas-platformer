@@ -8,7 +8,7 @@ class Level {
     this.platforms.push(new Platform(0, 0, 10, stageProps.height));
     this.platforms.push(new Platform(0, stageProps.height-2, stageProps.width, 50));
     this.platforms.push(new Platform(stageProps.width - 10, 0, 50, stageProps.height));
-    this.platforms.push(new Platform(stageProps.width/2 - 100, stageProps.height - 60, 200, 10));
+    this.platforms.push(new Platform(stageProps.width/2 - 100, stageProps.height - 45, 200, 7));
   }
 
   collide(player) {
