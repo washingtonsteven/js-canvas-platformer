@@ -1,6 +1,7 @@
 const Player = require('./classes/player');
 const Input = require('./classes/input');
 const Level = require('./classes/level');
+const HUD = require('./classes/hud');
 
 class CVS {
   constructor() {
@@ -9,10 +10,10 @@ class CVS {
     this.canvas = document.getElementById("canvas");
     this.ctx = canvas.getContext('2d');
     this.stageProps = {
-      width:500,
-      height:200,
+      width:1920,
+      height:1080,
       friction:0.8,
-      gravity:0.3
+      gravity:0.6
     };
 
     this.canvas.width = this.stageProps.width;
@@ -21,6 +22,7 @@ class CVS {
     this.player = new Player(this.stageProps);
     this.input = new Input(document.body);
     this.level = new Level(this.stageProps);
+    this.hud = new HUD(this.player);
 
     window.addEventListener("load", () => { this.update(); } );
   }
@@ -37,6 +39,7 @@ class CVS {
     //draw
     this.player.draw(this.ctx);
     this.level.draw(this.ctx);
+    this.hud.draw(this.ctx);
 
 
     requestAnimationFrame(() => { this.update(); });

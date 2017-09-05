@@ -4,15 +4,16 @@ class Player {
   constructor(stageProps) {
     console.log('Hello, Player');
     
-    this.width = this.height = 5;
+    this.width = this.height = 20;
     this.x = stageProps.width/2;
     this.y = stageProps.height/2 - this.height;
-    this.speed = 3;
+    this.speed = 6;
     this.velX = 0;
     this.velY = 0;
     this.jumping = false;
     this.grounded = false;
     this.stageProps = stageProps;
+    this.score = 0;
   }
 
   move(horizontal, vertical) {

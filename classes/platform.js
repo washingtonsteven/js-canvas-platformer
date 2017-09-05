@@ -11,6 +11,7 @@ class Platform {
       ctx.beginPath();
       ctx.rect(this.x, this.y, this.width, this.height);
       ctx.fill();
+      ctx.closePath();
     } 
 }
 

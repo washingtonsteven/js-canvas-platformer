@@ -1,14 +1,18 @@
 const Platform = require('./platform');
+const Coin = require('./coin');
 const util = require('./util');
 
 class Level {
   constructor(stageProps) {
     this.platforms = [];
+    this.coins = [];
 
     this.platforms.push(new Platform(0, 0, 10, stageProps.height));
     this.platforms.push(new Platform(0, stageProps.height-2, stageProps.width, 50));
     this.platforms.push(new Platform(stageProps.width - 10, 0, 50, stageProps.height));
-    this.platforms.push(new Platform(stageProps.width/2 - 100, stageProps.height - 45, 200, 7));
+    this.platforms.push(new Platform(stageProps.width/2 - 100, stageProps.height - 100, 200, 13));
+
+    this.coins.push(new Coin(stageProps.width/2 - 20, stageProps.height - 60));
   }
 
   collide(player) {
@@ -36,12 +40,26 @@ class Level {
         }
       }
     });
+
+    this.coins.forEach((coin) => {
+      if (coin.collected) return;
+
+      var collisionInfo = util.collide(player, coin);
+      if (collisionInfo) {
+        coin.collected = true;
+        player.score++;
+      }
+    });
   }
 
   draw(ctx) {
     this.platforms.forEach((p) => {
       p.draw(ctx);
-    })
+    });
+
+    this.coins.forEach((coin) => {
+      coin.draw(ctx);
+    });
   }
 }
 
