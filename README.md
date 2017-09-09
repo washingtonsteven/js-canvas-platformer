@@ -3,7 +3,7 @@
 ## No weird frameworks here!
 
 ### Running
-1. Server `index.html`
+1. Serve `index.html`
 
 ## Editing
 1. Edit `main.js` or `classes/*.js` (or the css if you really wanna)
