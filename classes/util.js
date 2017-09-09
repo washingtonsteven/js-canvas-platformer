@@ -47,17 +47,17 @@ class Util {
   }
 
   objectsHaveAllProps(objs, props) {
-    objs.forEach((obj) => {
+    for (let obj of objs) {
       if (!this.objectHasAllProps(obj, props)) return false;
-    });
+    }
 
     return true;
   }
 
   objectHasAllProps(obj, props) {
-    props.forEach((prop) => {
+    for (let prop of props) {
       if (!obj.hasOwnProperty(prop)) return false;
-    });
+    }
 
     return true;
   }
